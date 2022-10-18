@@ -47,6 +47,7 @@ export default async function donwloadStromErzeugung() {
   // url for
   // const url = `https://transparency.apg.at/transparency-api/api/v1/Download/AGPT/German/M15/2021-01-01T000000/${DATE_FORMATTED}T000000/AGPT_2020-12-31T22_00_00Z_${DATE_FORMATTED}T22_00_00Z_60M_de_${DATE_FORMATTED}T15_40_08Z.csv`;
   const url = `https://transparency.apg.at/transparency-api/api/v1/Download/AGPT/German/M15/${START_DATE}T000000/${DATE_FORMATTED}T000000/AGPT_${START_DATE_M_ONE}T23_00_00Z_${DATE_FORMATTED}T22_00_00Z_60M_de_${DATE_FORMATTED}T15_40_08Z.csv`;
+  const url = `https://transparency.apg.at/transparency-api/api/v1/Download/AGPT/German/M15/2022-10-18T000000/2022-10-19T000000/d871d410-4562-4731-af14-5f6b542daaa4/AGPT_2022-10-17T22_00_00Z_2022-10-18T22_00_00Z_15M_de_2022-10-18T08_09_22Z.csv?`;
   console.log(`url`, url);
   // https://transparency.apg.at/transparency-api/api/v1/Download/AGPT/German/M60/2021-01-01T000000/2022-09-20T000000/0dfa0bab-bffe-467e-aa21-211dad325f7b/AGPT_2020-12-31T23_00_00Z_2022-09-19T22_00_00Z_60M_de_2022-09-19T12_37_02Z.csv?
 
@@ -54,6 +55,7 @@ export default async function donwloadStromErzeugung() {
   let data;
   try {
     data = await d3.dsv(";", url);
+    console.log(`data: `, data);
     // add date to each row
     data = data.map((e) => {
       return {
